@@ -1,6 +1,0 @@
-J:\IronBot\C#\Ev3LibsTest\Ev3LibsTest\bin\Release\Ev3LibsTest.exe
-J:\IronBot\C#\Ev3LibsTest\Ev3LibsTest\bin\Release\Ev3LibsTest.pdb
-J:\IronBot\C#\Ev3LibsTest\Ev3LibsTest\bin\Release\Ev3Libs.dll
-J:\IronBot\C#\Ev3LibsTest\Ev3LibsTest\obj\x86\Release\ResolveAssemblyReference.cache
-J:\IronBot\C#\Ev3LibsTest\Ev3LibsTest\obj\x86\Release\Ev3LibsTest.exe
-J:\IronBot\C#\Ev3LibsTest\Ev3LibsTest\obj\x86\Release\Ev3LibsTest.pdb
