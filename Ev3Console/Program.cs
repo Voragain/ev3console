@@ -120,52 +120,10 @@ namespace Ev3Console
                 return;
             }
 
-            if (p[0] == "check")
-            {
-                try
-                {
-                    Console.WriteLine("Brick does" + (Brick.CheckHasData() ? "" : " not") + " have data available");
-                }
-                catch (Ev3Libs.Ev3Exceptions.ConnectionError e)
-                {
-                    Console.WriteLine(e.Message);
-                }
-                return;
-            }
 
-            if (p[0] == "read")
-            {
-                try
-                {
-                    string data = Brick.GetStringData();
-                    Console.WriteLine("Brick sent data : [" + data + "]");
-                    foreach (char c in data.ToCharArray())
-                    {
-                        Console.Write("[{0:X}] ", (int)c);
-                    }
-                }
-                catch (Ev3Libs.Ev3Exceptions.ConnectionError e)
-                {
-                    Console.WriteLine(e.Message);
-                }
-                return;
-            }
 
-            if (p[0] == "readb")
-            {
-                try
-                {
-                    byte data = (byte)Brick.GetByte();
-                    Console.WriteLine("[{0:X}]", data);
-                }
-                catch (Ev3Libs.Ev3Exceptions.ConnectionError e)
-                {
-                    Console.WriteLine(e.Message);
-                }
-                return;
-            }
 
-            if (p[0] == "sendstr")
+            if (p[0] == "sends")
             {
                 if (p.Count < 3)
                 {
@@ -175,7 +133,7 @@ namespace Ev3Console
                 }
                 try
                 {
-                    Brick.SendStringData(p[1], p[2]);
+                    Brick.Messaging.SendText(p[1], p[2]);
                 }
                 catch (Ev3Libs.Ev3Exceptions.ConnectionError e)
                 {
@@ -184,7 +142,7 @@ namespace Ev3Console
                 return;
             }
 
-            if (p[0] == "sendnmb")
+            if (p[0] == "sendn")
             {
                 if (p.Count < 3)
                 {
@@ -194,7 +152,7 @@ namespace Ev3Console
                 }
                 try
                 {
-                    Brick.SendNumber(p[1], Convert.ToSingle(p[2]));
+                    Brick.Messaging.SendNumber(p[1], Convert.ToSingle(p[2]));
                 }
                 catch (Ev3Libs.Ev3Exceptions.ConnectionError e)
                 {
@@ -213,7 +171,7 @@ namespace Ev3Console
                 }
                 try
                 {
-                    Brick.SendBool(p[1], (p[2] == "t") || (p[2] == "true") || (p[2] == "1"));
+                    Brick.Messaging.SendBool(p[1], (p[2] == "t") || (p[2] == "true") || (p[2] == "1"));
                 }
                 catch (Ev3Libs.Ev3Exceptions.ConnectionError e)
                 {
