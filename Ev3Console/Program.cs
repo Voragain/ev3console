@@ -120,7 +120,25 @@ namespace Ev3Console
                 return;
             }
 
-
+            if(p[0] == "check")
+            {
+                if (p.Count < 2)
+                {
+                    Console.WriteLine("\"port check\" requires a parameter");
+                    Console.WriteLine("syntax : port check [title]");
+                    return;
+                }
+                try
+                {
+                    int count = Brick.Messaging.CountMessages(p[1]);
+                    Console.WriteLine("There are {0} Messages waiting in the {1} stack.", count, p[1]);
+                }
+                catch (Ev3Libs.Ev3Exceptions.ConnectionError e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+                return;
+            }
 
 
             if (p[0] == "sends")
